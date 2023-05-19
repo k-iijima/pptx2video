@@ -1,0 +1,8 @@
+espnet: 0.10.3a2
+files:
+  model_file: exp/tts_finetune_jvs010_jsut_vits_raw_phn_jaconv_pyopenjtalk_prosody/100epoch.pth
+python: "3.7.3 (default, Mar 27 2019, 22:11:17) \n[GCC 7.3.0]"
+timestamp: 1632320193.158154
+torch: 1.7.1
+yaml_files:
+  train_config: exp/tts_finetune_jvs010_jsut_vits_raw_phn_jaconv_pyopenjtalk_prosody/config.yaml

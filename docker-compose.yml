@@ -1,0 +1,18 @@
+version: '3'
+services:
+  python:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./src:/root/src
+    # GPU
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
