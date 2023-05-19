@@ -1,7 +1,9 @@
 # pptx2video 
+[![Docker Image CI](https://github.com/k-iijima/pptx2video/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/k-iijima/pptx2video/actions/workflows/docker-image.yml)
 
 pptx2video extracts the note description portion of a PowerPoint slide, synthesizes the voice and generates a video file.
 only Japanese note descriptions are supported so far.
+
 
 # Usage
 
