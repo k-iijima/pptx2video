@@ -2,8 +2,10 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
-
+    branches:
+      - main
+    tags:
+      - 'v*'
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -15,8 +17,10 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v4
         with:
-          images: iijimas60/pptx2video:latest
+          images: iijimas60/pptx2video
+          flavor: latest=true
           tags: |
+            type=ref,event=branch
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
 
