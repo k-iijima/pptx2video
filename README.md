@@ -1,7 +1,7 @@
 # pptx2video 
 
 pptx2video extracts the note description portion of a PowerPoint slide, synthesizes the voice and generates a video file.
-Only Japanese note descriptions are supported so far.
+only Japanese note descriptions are supported so far.
 
 # Usage
 
