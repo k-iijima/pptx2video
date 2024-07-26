@@ -39,18 +39,26 @@ def make_wav(text2speech,filepath,text):
         print(e)
         return
 
-def pptx_note2_audio(tagetfile,audiodir,device='cpu'):
+def pptx_note2_audio(tag,tagetfile,audiodir,device='cpu'):
 
     lang = 'Japanese'
     model_path  ="/root/src/models/tts_finetune_jvs010_jsut_vits_raw_phn_jaconv_pyopenjtalk_prosody_latest/exp/tts_finetune_jvs010_jsut_vits_raw_phn_jaconv_pyopenjtalk_prosody/100epoch.pth"
     train_config  ="/root/src/models/tts_finetune_jvs010_jsut_vits_raw_phn_jaconv_pyopenjtalk_prosody_latest/exp/tts_finetune_jvs010_jsut_vits_raw_phn_jaconv_pyopenjtalk_prosody/config.yaml"
     vocoder_tag = 'none'
-    text2speech = Text2Speech.from_pretrained(
-        model_file=model_path, 
-        train_config=train_config,
-        vocoder_tag=str_or_none(vocoder_tag),
-        device=device
-    )
+    text2speech = None
+    if tag:
+        text2speech = Text2Speech.from_pretrained(
+            model_tag=str_or_none(tag),
+            vocoder_tag=str_or_none(vocoder_tag),
+            device=device
+        )
+    else: 
+        text2speech = Text2Speech.from_pretrained(
+            model_file=model_path, 
+            train_config=train_config,
+            vocoder_tag=str_or_none(vocoder_tag),
+            device=device
+        )
 
     notes = extract_note_description(tagetfile)
     output_audio_files = {}

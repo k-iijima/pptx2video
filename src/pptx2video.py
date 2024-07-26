@@ -59,8 +59,9 @@ def jpg2video(setting,imagedir):
     slide_time = setting.get('transition')
     outputpath = setting.get('output')
     density = setting.get('density')
+    tag = setting.get('tag')
 
-    output_audio_files,notes = p2a.pptx_note2_audio(tagetfile,imagedir,device)
+    output_audio_files,notes = p2a.pptx_note2_audio(tag,tagetfile,imagedir,device)
     p2j.pptx2jpg(tagetfile,density,imagedir)
     files = searchfiles(imagedir,".jpg")
     if len(files) <=0:

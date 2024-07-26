@@ -19,7 +19,8 @@ def parse():
     parser.add_argument('--width', default=1270, type=int)
     parser.add_argument('--height', default=720, type=int)
     parser.add_argument('--density', default=144, type=int)
-    parser.add_argument('--tempdir', default="")
+    parser.add_argument('--tag', default='', type=str)
+    parser.add_argument('--tempdir', default='')
 
     return parser.parse_args()
 
@@ -80,6 +81,10 @@ def check(args):
         return False
     setting['density']=args.density
     logger.debug(str(setting['density']))
+    
+    # tag
+    setting['tag']=args.tag
+    logger.debug(str(setting['tag']))
 
     if len(args.tempdir) >= 0:
         setting['tempdir']=args.tempdir
