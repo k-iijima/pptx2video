@@ -6,10 +6,6 @@ import time
 def process_started(name):
     try:    
         for proc in psutil.process_iter():
-            #print("process id:" + str(proc.pid))
-            #print("exe:" + proc.exe())
-            #print("cmdline:" + str(proc.cmdline()))
-            #print("cwd:" + proc.cwd())
             if (str(proc.exe()).find(name) >= 0):
                 print("alredy staertd:"+ name)
                 return True
@@ -47,7 +43,6 @@ def pptx2jpg(input_path,density,output_dir):
         command = '/usr/local/bin/unoconvert --convert-to {convert2} {input_path} {output_path}'.format(convert2="pdf", input_path=input_path, output_path=output_path)
         print(command)
         punoconvert = subprocess.run(['/bin/bash', '-c', command])
-        #punoconvert.wait()
 
         # PDF を ImageMagicで jpg に変換
         print(output_dir)            
@@ -56,4 +51,3 @@ def pptx2jpg(input_path,density,output_dir):
         pconvert = subprocess.run(['/bin/bash', '-c', command])
         #pconvert.wait()
     return True
-# pptx2jpg("/root/src/office/sample.pptx","/root/src/output/")
